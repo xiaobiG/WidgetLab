@@ -12,5 +12,6 @@ data class WidgetEntry(
 
 enum class WidgetTag(val labelRes: Int) {
     CANVAS(ext.android.widgetlab.R.string.tag_canvas),
-    LAYOUT(ext.android.widgetlab.R.string.tag_layout)
+    LAYOUT(ext.android.widgetlab.R.string.tag_layout),
+    COMPOSITE(ext.android.widgetlab.R.string.tag_composite)
 }

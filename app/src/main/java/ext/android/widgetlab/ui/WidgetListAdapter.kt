@@ -46,6 +46,7 @@ class WidgetListAdapter(
             val chipColor = when (entry.tag) {
                 WidgetTag.CANVAS -> R.color.chip_canvas
                 WidgetTag.LAYOUT -> R.color.chip_layout
+                WidgetTag.COMPOSITE -> R.color.chip_composite
             }
             binding.entryTag.chipBackgroundColor =
                 ContextCompat.getColorStateList(context, chipColor)

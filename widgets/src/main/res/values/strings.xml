@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="date_picker_cancel">取消</string>
+    <string name="date_picker_confirm">确定</string>
+    <string name="date_picker_open">打开日期选择器</string>
+    <string name="date_picker_no_selection">尚未选择日期</string>
+    <string name="date_picker_selected_format">已选：%1$d年%2$d月%3$d日</string>
+    <string name="date_picker_week_mon">一</string>
+    <string name="date_picker_week_tue">二</string>
+    <string name="date_picker_week_wed">三</string>
+    <string name="date_picker_week_thu">四</string>
+    <string name="date_picker_week_fri">五</string>
+    <string name="date_picker_week_sat">六</string>
+    <string name="date_picker_week_sun">日</string>
+    <string name="date_picker_prev_month">上一月</string>
+    <string name="date_picker_next_month">下一月</string>
+</resources>

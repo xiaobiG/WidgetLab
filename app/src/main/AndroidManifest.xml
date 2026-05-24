@@ -24,6 +24,10 @@
         <activity
             android:name=".demo.RatioLayoutDemoActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".demo.DatePickerDemoActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

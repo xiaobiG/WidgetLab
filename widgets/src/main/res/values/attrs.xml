@@ -10,4 +10,11 @@
     <declare-styleable name="RatioLayoutView">
         <attr name="layoutRatio" format="float" />
     </declare-styleable>
+
+    <declare-styleable name="DatePickerPanelView">
+        <attr name="datePickerPrimaryColor" format="color" />
+        <attr name="datePickerSecondaryColor" format="color" />
+        <attr name="datePickerTextColor" format="color" />
+        <attr name="datePickerHighlightColor" format="color" />
+    </declare-styleable>
 </resources>

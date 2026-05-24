@@ -11,9 +11,13 @@
     <string name="demo_api_usage">Kotlin API</string>
     <string name="tag_canvas">绘制</string>
     <string name="tag_layout">布局</string>
+    <string name="tag_composite">组合</string>
 
     <string name="ring_progress_title">环形进度</string>
     <string name="ring_progress_desc">Canvas 绘制的圆环进度控件</string>
     <string name="ratio_layout_title">比例容器</string>
     <string name="ratio_layout_desc">按宽度和比例自动计算高度的 FrameLayout</string>
+
+    <string name="date_picker_title">日期选择器</string>
+    <string name="date_picker_desc">圆角弹框日期选择，支持特别日期高亮与主题配色</string>
 </resources>
