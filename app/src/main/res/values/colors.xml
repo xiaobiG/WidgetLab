@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="preview_bg_light">#FFF5F5F5</color>
+    <color name="preview_bg_dark">#FF263238</color>
+    <color name="chip_canvas">#FF1976D2</color>
+    <color name="chip_layout">#FF388E3C</color>
+    <color name="ratio_demo_fill">#FF90CAF9</color>
+</resources>

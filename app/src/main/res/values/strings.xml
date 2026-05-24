@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">控件实验室</string>
+    <string name="catalog_title">控件目录</string>
+    <string name="catalog_subtitle">选择控件查看效果并调节参数</string>
+    <string name="demo_preview">预览</string>
+    <string name="demo_config">参数配置</string>
+    <string name="demo_usage">用法</string>
+    <string name="demo_dark_background">深色背景</string>
+    <string name="demo_xml_usage">XML 声明</string>
+    <string name="demo_api_usage">Kotlin API</string>
+    <string name="tag_canvas">绘制</string>
+    <string name="tag_layout">布局</string>
+
+    <string name="ring_progress_title">环形进度</string>
+    <string name="ring_progress_desc">Canvas 绘制的圆环进度控件</string>
+    <string name="ratio_layout_title">比例容器</string>
+    <string name="ratio_layout_desc">按宽度和比例自动计算高度的 FrameLayout</string>
+</resources>
