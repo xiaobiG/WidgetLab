@@ -6,7 +6,6 @@
     <string name="demo_preview">预览</string>
     <string name="demo_config">参数配置</string>
     <string name="demo_usage">用法</string>
-    <string name="demo_dark_background">深色背景</string>
     <string name="demo_xml_usage">XML 声明</string>
     <string name="demo_api_usage">Kotlin API</string>
     <string name="tag_canvas">绘制</string>

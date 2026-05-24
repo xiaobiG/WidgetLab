@@ -88,6 +88,17 @@ adb_hint() {
     echo "  export PATH=\"$DEFAULT_SDK_ROOT/platform-tools:\$PATH\"" >&2
 }
 
+format_duration() {
+    local total=$1
+    if ((total < 60)); then
+        printf '%ss' "$total"
+    elif ((total < 3600)); then
+        printf '%sm %ss' $((total / 60)) $((total % 60))
+    else
+        printf '%sh %sm %ss' $((total / 3600)) $(((total % 3600) / 60)) $((total % 60))
+    fi
+}
+
 check_adb_device() {
     if ! command -v adb >/dev/null 2>&1; then
         echo "Error: adb not found in PATH" >&2
@@ -175,7 +186,14 @@ else
     echo "==> Building and installing $VARIANT ..."
 fi
 
+BUILD_STARTED_AT="$(date '+%Y-%m-%d %H:%M:%S')"
+BUILD_START_SECONDS=$SECONDS
+echo "==> Started at $BUILD_STARTED_AT"
+
 ./gradlew "$GRADLE_TASK" --no-daemon
+
+BUILD_ELAPSED=$((SECONDS - BUILD_START_SECONDS))
+echo "==> Build time: $(format_duration "$BUILD_ELAPSED")"
 
 if [ "$BUILD_ONLY" -eq 1 ]; then
     APK_DIR="app/build/outputs/apk/$VARIANT"
