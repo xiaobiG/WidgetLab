@@ -3,6 +3,15 @@ plugins {
     alias(libs.plugins.kotlin.android)
 }
 
+import java.util.Properties
+
+val keystorePropertiesFile = rootProject.file("keystore/keystore.properties")
+val keystoreFile = keystorePropertiesFile.takeIf { it.exists() }?.let { propsFile ->
+    Properties().apply { load(propsFile.inputStream()) }
+        .getProperty("storeFile")
+        ?.let { rootProject.file(it) }
+}
+
 android {
     namespace = "ext.android.widgetlab"
     compileSdk = 36
@@ -16,10 +25,25 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        if (keystorePropertiesFile.exists() && keystoreFile?.exists() == true) {
+            val keystoreProperties = Properties().apply {
+                load(keystorePropertiesFile.inputStream())
+            }
+            create("release") {
+                storeFile = keystoreFile
+                storePassword = keystoreProperties.getProperty("storePassword")
+                keyAlias = keystoreProperties.getProperty("keyAlias")
+                keyPassword = keystoreProperties.getProperty("keyPassword")
+            }
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
-            signingConfig = signingConfigs.getByName("debug")
+            signingConfig = signingConfigs.findByName("release")
+                ?: error("Release keystore missing. Ensure keystore/ is present (see keystore/keystore.properties).")
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"

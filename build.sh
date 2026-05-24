@@ -17,7 +17,7 @@ Usage: ./build.sh [debug|release] [options]
 
 Variants:
   debug     Build and install debug APK (default)
-  release   Build and install release APK (local release uses debug signing)
+  release   Build and install release APK (signed with project keystore)
 
 Options:
   -s, --serial <id>   Target device serial (sets ANDROID_SERIAL)
