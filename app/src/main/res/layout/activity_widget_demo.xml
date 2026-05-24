@@ -34,13 +34,6 @@
                 android:text="@string/demo_preview"
                 android:textAppearance="?attr/textAppearanceTitleSmall" />
 
-            <com.google.android.material.materialswitch.MaterialSwitch
-                android:id="@+id/darkBackgroundSwitch"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="@string/demo_dark_background" />
-
             <FrameLayout
                 android:id="@+id/previewContainer"
                 android:layout_width="match_parent"

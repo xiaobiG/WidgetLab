@@ -4,8 +4,6 @@ import android.os.Bundle
 import android.view.View
 import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
-import ext.android.widgetlab.R
 import ext.android.widgetlab.databinding.ActivityWidgetDemoBinding
 
 abstract class BaseWidgetDemoActivity : AppCompatActivity() {
@@ -37,11 +35,6 @@ abstract class BaseWidgetDemoActivity : AppCompatActivity() {
                 FrameLayout.LayoutParams.WRAP_CONTENT
             )
         )
-
-        binding.darkBackgroundSwitch.setOnCheckedChangeListener { _, isDark ->
-            val colorRes = if (isDark) R.color.preview_bg_dark else R.color.preview_bg_light
-            binding.previewContainer.setBackgroundColor(ContextCompat.getColor(this, colorRes))
-        }
 
         ConfigPanelAdapter(binding.configPanel).bindParams(buildDemoParams(targetView))
         binding.xmlSnippet.text = buildXmlSnippet()

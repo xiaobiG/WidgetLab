@@ -17,7 +17,7 @@ Usage: ./build.sh [debug|release] [options]
 
 Variants:
   debug     Build and install debug APK (default)
-  release   Build and install release APK (local release uses debug signing)
+  release   Build and install release APK (signed with project keystore)
 
 Options:
   -s, --serial <id>   Target device serial (sets ANDROID_SERIAL)
@@ -86,6 +86,17 @@ fi
 adb_hint() {
     echo "Hint: ensure platform-tools is in PATH, e.g." >&2
     echo "  export PATH=\"$DEFAULT_SDK_ROOT/platform-tools:\$PATH\"" >&2
+}
+
+format_duration() {
+    local total=$1
+    if ((total < 60)); then
+        printf '%ss' "$total"
+    elif ((total < 3600)); then
+        printf '%sm %ss' $((total / 60)) $((total % 60))
+    else
+        printf '%sh %sm %ss' $((total / 3600)) $(((total % 3600) / 60)) $((total % 60))
+    fi
 }
 
 check_adb_device() {
@@ -175,7 +186,14 @@ else
     echo "==> Building and installing $VARIANT ..."
 fi
 
+BUILD_STARTED_AT="$(date '+%Y-%m-%d %H:%M:%S')"
+BUILD_START_SECONDS=$SECONDS
+echo "==> Started at $BUILD_STARTED_AT"
+
 ./gradlew "$GRADLE_TASK" --no-daemon
+
+BUILD_ELAPSED=$((SECONDS - BUILD_START_SECONDS))
+echo "==> Build time: $(format_duration "$BUILD_ELAPSED")"
 
 if [ "$BUILD_ONLY" -eq 1 ]; then
     APK_DIR="app/build/outputs/apk/$VARIANT"
